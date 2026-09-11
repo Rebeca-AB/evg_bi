@@ -1,0 +1,232 @@
+table amostra_evg
+	lineageTag: 97f5c650-5cc0-410e-9977-9cb4b0f0b1ac
+
+	column cod_matricula
+		dataType: string
+		lineageTag: 9ddc4597-9943-49bf-b0fb-403c1ec8bc77
+		summarizeBy: none
+		sourceColumn: cod_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_matricula
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e06b4fb1-1a34-43c2-a7c4-fc4140dc5ed1
+		summarizeBy: none
+		sourceColumn: dt_matricula
+
+		variation Variation
+			isDefault
+			relationship: 52acb8ec-c205-4be3-b9af-ab564f36a62e
+			defaultHierarchy: LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column nacionalidade
+		dataType: string
+		lineageTag: 30fd1886-25a3-4053-9d32-51e6a2e94b4b
+		summarizeBy: none
+		sourceColumn: nacionalidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_turma
+		dataType: int64
+		formatString: 0
+		lineageTag: cd1e36ba-8573-4a91-ad31-dd8661a9f21d
+		summarizeBy: sum
+		sourceColumn: cod_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_turma
+		dataType: string
+		lineageTag: 5fdbd79a-6885-4269-a60b-0cb5412fb193
+		summarizeBy: none
+		sourceColumn: nome_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column modalidade_turma
+		dataType: string
+		lineageTag: 67ee4004-a94c-4e2f-b123-8c4d8616e4cc
+		summarizeBy: none
+		sourceColumn: modalidade_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d7705d9-3e91-4b6d-a4bf-af6a9b3ff5bc
+		summarizeBy: sum
+		sourceColumn: cod_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_curso
+		dataType: string
+		lineageTag: 86afd9ba-a904-4519-bbd1-9a4fa126365b
+		summarizeBy: none
+		sourceColumn: nome_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column carga_horaria
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a898b4b-d109-4d43-9976-f1f101986931
+		summarizeBy: sum
+		sourceColumn: carga_horaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_fim
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d94b7433-65ee-46d4-ab3f-5486c6681c2e
+		summarizeBy: none
+		sourceColumn: dt_fim
+
+		variation Variation
+			isDefault
+			relationship: 89ab1a2a-8848-4388-8390-b0599bb3dcd0
+			defaultHierarchy: LocalDateTable_a598c3e1-1670-4b27-95f5-235fc180ff2a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_turma
+		dataType: string
+		lineageTag: 5c99cb3f-27d7-4e43-b7d5-dc728d4aa42a
+		summarizeBy: none
+		sourceColumn: sit_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column instituicao
+		dataType: string
+		lineageTag: c5e2afff-50e4-4d45-83f9-ff2534862ffa
+		summarizeBy: none
+		sourceColumn: instituicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio_pessoa
+		dataType: string
+		lineageTag: 45990a15-d253-42ad-a450-096999dbf26d
+		summarizeBy: none
+		sourceColumn: municipio_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf_pessoa
+		dataType: string
+		lineageTag: 547316fd-783c-4a70-8593-b6c43ef91543
+		summarizeBy: none
+		sourceColumn: uf_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column conteudista
+		dataType: string
+		lineageTag: 1f47a9f2-bbc1-4c5c-b34f-84e0b3bf33bc
+		summarizeBy: none
+		sourceColumn: conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	column tematica
+		dataType: string
+		lineageTag: 0880f353-1108-42a0-9fa0-c94b1e6583a5
+		summarizeBy: none
+		sourceColumn: tematica
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_pessoa
+		dataType: string
+		lineageTag: 09ef0a99-0535-435d-ade4-7a3314460fdf
+		summarizeBy: none
+		sourceColumn: codigo_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: 1b90a58b-bcdc-4bc2-b542-70b51dc6276e
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: c87be0cc-f8dc-40e8-9019-87276d393d52
+		summarizeBy: sum
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_matricula
+		dataType: string
+		lineageTag: 4cfe9264-a49d-478d-8a68-013ec43d0703
+		summarizeBy: none
+		sourceColumn: sit_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column poder
+		dataType: string
+		lineageTag: 63da185f-2bcd-4580-98b6-fca1d73f3900
+		summarizeBy: none
+		sourceColumn: poder
+
+		annotation SummarizationSetBy = Automatic
+
+	column esfera
+		dataType: string
+		lineageTag: 8def7bf6-dc4f-4d58-a3d1-aaf7b01f8717
+		summarizeBy: none
+		sourceColumn: esfera
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_pessoa
+		dataType: string
+		lineageTag: 4ade8af6-b699-4d7a-bce7-dcf65aa847f0
+		summarizeBy: none
+		sourceColumn: email_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column telefone_pessoa
+		dataType: int64
+		formatString: 0
+		lineageTag: a988f734-1bb0-473f-b332-f6ca82611b92
+		summarizeBy: sum
+		sourceColumn: telefone_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_conteudista
+		dataType: string
+		lineageTag: 7428afd9-1bc3-4c45-aed0-71f0271813ff
+		summarizeBy: none
+		sourceColumn: email_conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amostra_evg = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\Rebeca\Desktop\amostra_evg.csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"cod_matricula", type text}, {"dt_matricula", type datetime}, {"nacionalidade", type text}, {"cod_turma", Int64.Type}, {"nome_turma", type text}, {"modalidade_turma", type text}, {"cod_curso", Int64.Type}, {"nome_curso", type text}, {"carga_horaria", Int64.Type}, {"dt_fim", type datetime}, {"sit_turma", type text}, {"instituicao", type text}, {"municipio_pessoa", type text}, {"uf_pessoa", type text}, {"conteudista", type text}, {"tematica", type text}, {"codigo_pessoa", type text}, {"sexo", type text}, {"idade", Int64.Type}, {"sit_matricula", type text}, {"poder", type text}, {"esfera", type text}, {"email_pessoa", type text}, {"telefone_pessoa", Int64.Type}, {"email_conteudista", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

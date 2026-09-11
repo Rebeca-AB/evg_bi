@@ -1,0 +1,21 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["amostra_evg"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table amostra_evg
+ref table DateTableTemplate_9501a19c-0389-4043-a371-1d45a73ea046
+ref table LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2
+ref table LocalDateTable_a598c3e1-1670-4b27-95f5-235fc180ff2a
+
+ref cultureInfo pt-BR
+
