@@ -8,3 +8,16 @@ A modelagem lógica foi desenvolvida utilizando a ferramenta **DrawDB** com a es
   * `dim_pessoa`: Contém dados demográficos e institucionais do aluno/usuário (idade, e-mail, município, UF, esfera, etc.).   
   * `dim_turma`: Armazena os atributos específicos da turma (nome, modalidade, situação da turma).   
   * `dim_curso`: Detalha as características dos cursos (nome, carga horária, temática, conteúdo).   
+
+## → Dashboard  
+<img width="1250" height="704" alt="image" src="https://github.com/user-attachments/assets/5166b0d2-7333-4281-a4bc-be5409610e2e" />  
+
+* **Perguntas:**
+  * `Total de alunos inscritos `: 188,11 mil
+  * `Curso maior quantidade de matrículas`: Boas Práticas de Manipulação em Serviços de Alimentação
+  * `Gênero com mais participação nos cursos`: Feminino com 100,81 mil - Masculino com 80,36 mil
+  * `Top 3 UF com mais alunos`: São Paulo (33,18 mil) - Rio de Janeiros (19,18 mil) - Minas Gerias (15,51 mil)  
+    
+* **[ Filtragem por gênero: ]**
+<img width="1252" height="704" alt="image" src="https://github.com/user-attachments/assets/823a8c07-5bd5-48c5-b6de-c490da393ec2" />  
+
