@@ -1,0 +1,124 @@
+table dim_pessoa
+	lineageTag: ffeaef5f-3138-46b8-be95-3478565e9b81
+
+	measure 'Gênero Mais Frequente' = ```
+			
+			MAXX(
+			    TOPN(
+			        1, 
+			        SUMMARIZE(dim_pessoa, dim_pessoa[sexo], "Total", COUNT(f_evg[cod_matricula])), 
+			        [Total], 
+			        DESC
+			        ), 
+			    dim_pessoa[sexo]
+			)
+			```
+		lineageTag: 14a21a50-f917-4a92-99f5-413cf1bbbd2a
+
+	column codigo_pessoa
+		dataType: string
+		lineageTag: 36c1e6e2-5b47-4755-8897-3bdf6ef2686a
+		summarizeBy: none
+		sourceColumn: codigo_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column telefone_pessoa
+		dataType: int64
+		formatString: 0
+		lineageTag: 65212698-6dcf-4f74-88e8-eb653c324a2d
+		summarizeBy: none
+		sourceColumn: telefone_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_pessoa
+		dataType: string
+		lineageTag: 69157163-b3c6-4360-a2b0-160156438b2b
+		summarizeBy: none
+		sourceColumn: email_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column esfera
+		dataType: string
+		lineageTag: 1d8d7335-8e6c-4781-98b7-2a98702784da
+		summarizeBy: none
+		sourceColumn: esfera
+
+		annotation SummarizationSetBy = Automatic
+
+	column poder
+		dataType: string
+		lineageTag: 92146927-e4f8-43ec-ae07-023155ad37b2
+		summarizeBy: none
+		sourceColumn: poder
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: c972659e-7416-4673-a5c4-aac641566c48
+		summarizeBy: none
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: d5066d95-bfc2-4994-921b-ca8771f9cabc
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf_pessoa
+		dataType: string
+		lineageTag: 5451e470-65a1-41d3-aea7-0dd1fa251cdd
+		summarizeBy: none
+		sourceColumn: uf_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio_pessoa
+		dataType: string
+		lineageTag: a7c5186f-4156-4437-99e5-de6f155cbbbd
+		summarizeBy: none
+		sourceColumn: municipio_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column nacionalidade
+		dataType: string
+		lineageTag: 4efa802a-ead3-414f-b19e-c59e83cc50b5
+		summarizeBy: none
+		sourceColumn: nacionalidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column instituicao
+		dataType: string
+		lineageTag: d83ef492-eaa4-4236-afcd-044a55358da0
+		summarizeBy: none
+		sourceColumn: instituicao
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_pessoa = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\Rebeca\Desktop\amostra_evg.csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"cod_matricula", type text}, {"dt_matricula", type datetime}, {"nacionalidade", type text}, {"cod_turma", Int64.Type}, {"nome_turma", type text}, {"modalidade_turma", type text}, {"cod_curso", Int64.Type}, {"nome_curso", type text}, {"carga_horaria", Int64.Type}, {"dt_fim", type datetime}, {"sit_turma", type text}, {"instituicao", type text}, {"municipio_pessoa", type text}, {"uf_pessoa", type text}, {"conteudista", type text}, {"tematica", type text}, {"codigo_pessoa", type text}, {"sexo", type text}, {"idade", Int64.Type}, {"sit_matricula", type text}, {"poder", type text}, {"esfera", type text}, {"email_pessoa", type text}, {"telefone_pessoa", Int64.Type}, {"email_conteudista", type text}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"telefone_pessoa", "email_pessoa", "esfera", "poder", "idade", "sexo", "codigo_pessoa", "uf_pessoa", "municipio_pessoa", "nacionalidade", "instituicao"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Outras Colunas Removidas",{"codigo_pessoa", "telefone_pessoa", "email_pessoa", "esfera", "poder", "idade", "sexo", "uf_pessoa", "municipio_pessoa", "nacionalidade", "instituicao"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Reordenadas", {"codigo_pessoa"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

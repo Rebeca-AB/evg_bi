@@ -8,14 +8,17 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["amostra_evg"]
+annotation PBI_QueryOrder = ["f_evg","dim_turma","dim_curso","dim_pessoa"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table amostra_evg
+ref table f_evg
 ref table DateTableTemplate_9501a19c-0389-4043-a371-1d45a73ea046
 ref table LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2
 ref table LocalDateTable_a598c3e1-1670-4b27-95f5-235fc180ff2a
+ref table dim_turma
+ref table dim_curso
+ref table dim_pessoa
 
 ref cultureInfo pt-BR
 

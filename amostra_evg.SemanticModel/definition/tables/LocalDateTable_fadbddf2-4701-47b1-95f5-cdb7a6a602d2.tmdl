@@ -110,7 +110,7 @@ table LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2
 
 	partition LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2 = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('amostra_evg'[dt_matricula])), 1, 1), Date(Year(MAX('amostra_evg'[dt_matricula])), 12, 31))
+		source = Calendar(Date(Year(MIN('f_evg'[dt_matricula])), 1, 1), Date(Year(MAX('f_evg'[dt_matricula])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

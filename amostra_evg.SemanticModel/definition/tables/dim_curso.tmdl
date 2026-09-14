@@ -1,0 +1,70 @@
+table dim_curso
+	lineageTag: 257bd616-e179-46f6-9903-9858df3ce075
+
+	column cod_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: 9567477b-9d93-4206-a29c-125be22bb031
+		summarizeBy: none
+		sourceColumn: cod_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column carga_horaria
+		dataType: int64
+		formatString: 0
+		lineageTag: f19129a0-c4d3-4223-825f-43b822a24cce
+		summarizeBy: none
+		sourceColumn: carga_horaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_curso
+		dataType: string
+		lineageTag: 86d2abaf-7d8d-4e8d-afc1-2a1a3ec7accc
+		summarizeBy: none
+		sourceColumn: nome_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column conteudista
+		dataType: string
+		lineageTag: b3508f65-1d65-4328-8156-482c716e16c2
+		summarizeBy: none
+		sourceColumn: conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	column tematica
+		dataType: string
+		lineageTag: 5a55089b-46dc-4731-bc35-f069c73b474d
+		summarizeBy: none
+		sourceColumn: tematica
+
+		annotation SummarizationSetBy = Automatic
+
+	column email_conteudista
+		dataType: string
+		lineageTag: 67962bfd-8c03-4f1e-b859-2ca346d36b0f
+		summarizeBy: none
+		sourceColumn: email_conteudista
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_curso = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\Rebeca\Desktop\amostra_evg.csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"cod_matricula", type text}, {"dt_matricula", type datetime}, {"nacionalidade", type text}, {"cod_turma", Int64.Type}, {"nome_turma", type text}, {"modalidade_turma", type text}, {"cod_curso", Int64.Type}, {"nome_curso", type text}, {"carga_horaria", Int64.Type}, {"dt_fim", type datetime}, {"sit_turma", type text}, {"instituicao", type text}, {"municipio_pessoa", type text}, {"uf_pessoa", type text}, {"conteudista", type text}, {"tematica", type text}, {"codigo_pessoa", type text}, {"sexo", type text}, {"idade", Int64.Type}, {"sit_matricula", type text}, {"poder", type text}, {"esfera", type text}, {"email_pessoa", type text}, {"telefone_pessoa", Int64.Type}, {"email_conteudista", type text}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"carga_horaria", "cod_curso", "nome_curso", "conteudista", "tematica", "email_conteudista"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Outras Colunas Removidas",{"cod_curso", "carga_horaria", "nome_curso", "conteudista", "tematica", "email_conteudista"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Reordenadas", {"cod_curso"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "f7e8c957e1cb2305cdb2",
+  "position": {
+    "x": 857.26937269372684,
+    "y": 278.67158671586714,
+    "z": 5,
+    "height": 441.62361623616232,
+    "width": 422.73062730627305,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_pessoa"
+                    }
+                  },
+                  "Property": "uf_pessoa"
+                }
+              },
+              "queryRef": "dim_pessoa.uf_pessoa",
+              "nativeQueryRef": "uf_pessoa",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_pessoa"
+                        }
+                      },
+                      "Property": "codigo_pessoa"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(dim_pessoa.codigo_pessoa)",
+              "nativeQueryRef": "Contagem de codigo_pessoa"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_pessoa"
+                      }
+                    },
+                    "Property": "codigo_pessoa"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Uf com mais matículas'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

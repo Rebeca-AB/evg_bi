@@ -10,13 +10,52 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 355,
+            "y": 142
           },
-          "nodeIndex": "amostra_evg",
+          "nodeIndex": "f_evg",
           "nodeLineageTag": "97f5c650-5cc0-410e-9977-9cb4b0f0b1ac",
           "size": {
-            "height": 300,
+            "height": 259,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 702,
+            "y": 250
+          },
+          "nodeIndex": "dim_curso",
+          "nodeLineageTag": "257bd616-e179-46f6-9903-9858df3ce075",
+          "size": {
+            "height": 228,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 23,
+            "y": 0
+          },
+          "nodeIndex": "dim_pessoa",
+          "nodeLineageTag": "ffeaef5f-3138-46b8-be95-3478565e9b81",
+          "size": {
+            "height": 363,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 702,
+            "y": 0
+          },
+          "nodeIndex": "dim_turma",
+          "nodeLineageTag": "731e830c-b7a9-4041-8de7-5418df33cfc1",
+          "size": {
+            "height": 175,
             "width": 234
           },
           "zIndex": 0

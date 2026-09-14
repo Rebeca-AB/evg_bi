@@ -1,0 +1,99 @@
+table f_evg
+	lineageTag: 97f5c650-5cc0-410e-9977-9cb4b0f0b1ac
+
+	column cod_matricula
+		dataType: string
+		lineageTag: 9ddc4597-9943-49bf-b0fb-403c1ec8bc77
+		summarizeBy: none
+		sourceColumn: cod_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_matricula
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e06b4fb1-1a34-43c2-a7c4-fc4140dc5ed1
+		summarizeBy: none
+		sourceColumn: dt_matricula
+
+		variation Variation
+			isDefault
+			relationship: 52acb8ec-c205-4be3-b9af-ab564f36a62e
+			defaultHierarchy: LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column fk_turma
+		dataType: int64
+		formatString: 0
+		lineageTag: cd1e36ba-8573-4a91-ad31-dd8661a9f21d
+		summarizeBy: none
+		sourceColumn: fk_turma
+
+		annotation SummarizationSetBy = Automatic
+
+	column fk_curso
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d7705d9-3e91-4b6d-a4bf-af6a9b3ff5bc
+		summarizeBy: none
+		sourceColumn: fk_curso
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_fim
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d94b7433-65ee-46d4-ab3f-5486c6681c2e
+		summarizeBy: none
+		sourceColumn: dt_fim
+
+		variation Variation
+			isDefault
+			relationship: 89ab1a2a-8848-4388-8390-b0599bb3dcd0
+			defaultHierarchy: LocalDateTable_a598c3e1-1670-4b27-95f5-235fc180ff2a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column fk_pessoa
+		dataType: string
+		lineageTag: 09ef0a99-0535-435d-ade4-7a3314460fdf
+		summarizeBy: none
+		sourceColumn: fk_pessoa
+
+		annotation SummarizationSetBy = Automatic
+
+	column sit_matricula
+		dataType: string
+		lineageTag: 4cfe9264-a49d-478d-8a68-013ec43d0703
+		summarizeBy: none
+		sourceColumn: sit_matricula
+
+		annotation SummarizationSetBy = Automatic
+
+	partition f_evg = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\Rebeca\Desktop\amostra_evg.csv"),[Delimiter=",", Columns=25, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"cod_matricula", type text}, {"dt_matricula", type datetime}, {"nacionalidade", type text}, {"cod_turma", Int64.Type}, {"nome_turma", type text}, {"modalidade_turma", type text}, {"cod_curso", Int64.Type}, {"nome_curso", type text}, {"carga_horaria", Int64.Type}, {"dt_fim", type datetime}, {"sit_turma", type text}, {"instituicao", type text}, {"municipio_pessoa", type text}, {"uf_pessoa", type text}, {"conteudista", type text}, {"tematica", type text}, {"codigo_pessoa", type text}, {"sexo", type text}, {"idade", Int64.Type}, {"sit_matricula", type text}, {"poder", type text}, {"esfera", type text}, {"email_pessoa", type text}, {"telefone_pessoa", Int64.Type}, {"email_conteudista", type text}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Tipo Alterado",{"cod_matricula", "dt_matricula", "sit_matricula", "dt_fim", "cod_turma", "cod_curso", "codigo_pessoa"}),
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Outras Colunas Removidas",{"cod_matricula", "sit_matricula", "dt_matricula", "dt_fim", "cod_turma", "cod_curso", "codigo_pessoa"}),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Colunas Reordenadas", {"cod_curso"}, dim_curso, {"cod_curso"}, "dim_curso", JoinKind.LeftOuter),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Consultas Mescladas", {"codigo_pessoa"}, dim_pessoa, {"codigo_pessoa"}, "dim_pessoa", JoinKind.LeftOuter),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Consultas Mescladas1", {"cod_turma"}, dim_turma, {"cod_turma"}, "dim_turma", JoinKind.LeftOuter),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Consultas Mescladas2",{"cod_turma", "cod_curso", "codigo_pessoa"}),
+				    #"dim_curso Expandido" = Table.ExpandTableColumn(#"Colunas Removidas", "dim_curso", {"cod_curso"}, {"cod_curso"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"dim_curso Expandido",{{"cod_curso", "fk_curso"}}),
+				    #"dim_pessoa Expandido" = Table.ExpandTableColumn(#"Colunas Renomeadas", "dim_pessoa", {"codigo_pessoa"}, {"codigo_pessoa"}),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"dim_pessoa Expandido",{{"codigo_pessoa", "fk_pessoa"}}),
+				    #"dim_turma Expandido" = Table.ExpandTableColumn(#"Colunas Renomeadas1", "dim_turma", {"cod_turma"}, {"cod_turma"}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"dim_turma Expandido",{{"cod_turma", "fk_turma"}})
+				in
+				    #"Colunas Renomeadas2"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

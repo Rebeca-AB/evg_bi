@@ -1,0 +1,137 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "2323714670750ea0923c",
+  "position": {
+    "x": 459.33579335793354,
+    "y": 278.67158671586714,
+    "z": 4,
+    "height": 441.62361623616232,
+    "width": 397.93357933579335,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_pessoa"
+                    }
+                  },
+                  "Property": "sexo"
+                }
+              },
+              "queryRef": "dim_pessoa.sexo",
+              "nativeQueryRef": "sexo",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "f_evg"
+                        }
+                      },
+                      "Property": "cod_matricula"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(f_evg.cod_matricula)",
+              "nativeQueryRef": "Contagem de cod_matricula"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "f_evg"
+                      }
+                    },
+                    "Property": "cod_matricula"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Gênero com mais matrículas'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a2c96943491e974a3311",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_pessoa"
+              }
+            },
+            "Property": "sexo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d2f2a21c457c1dd992ab",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "f_evg"
+                  }
+                },
+                "Property": "cod_matricula"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
