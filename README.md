@@ -22,9 +22,9 @@ A modelagem lógica foi desenvolvida utilizando a ferramenta **DrawDB** com a es
   * `Top 3 UF com mais alunos`: São Paulo (33,18 mil) - Rio de Janeiros (19,18 mil) - Minas Gerias (15,51 mil)  
     
 * **[ Exemplo de filtragem : ]**
-<img width="1168" height="663" alt="image" src="https://github.com/user-attachments/assets/01bafee2-bc9e-40f8-bf4b-3fe5bec84f56" />
-  * **Data:** inscritos dentro do período 2 meses (Maio - Junho)   
-  * **Curso:** Comunicação assertiva   
-  * **UF:** Na região do DF    
+<img width="1168" height="663" alt="image" src="https://github.com/user-attachments/assets/01bafee2-bc9e-40f8-bf4b-3fe5bec84f56" />   
+Data: inscritos dentro do período 2 meses (Maio - Junho)   
+Curso: Comunicação assertiva   
+UF: Na região do DF   
 
 
