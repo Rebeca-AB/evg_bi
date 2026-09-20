@@ -1,23 +1,30 @@
 # Projeto BI - Escola Virtual do Governo   
 ## → Modelagem lógica dos dados  
 A modelagem lógica foi desenvolvida utilizando a ferramenta **DrawDB** com a estrutura em esquema estrela (Star Schema).  
-<img width="908" height="569" alt="image" src="https://github.com/user-attachments/assets/f95e6af2-93af-4615-945a-6c2d7684bfb3" />   
+
+<img width="1089" height="679" alt="image" src="https://github.com/user-attachments/assets/ac3dd93b-2563-400d-9d9d-0443d5f97769" />
 * **Tabela Fato:**   
-  * `f_evg`: Concentra os registros das matrículas, datas, situações e as chaves estrangeiras para conexão com as dimensões.   
+  * `f_evg`: Reservados para dados sobre a matrícula (código, situação) e as chaves estrangeiras para a conexão com as tabelas dimensões.   
 * **Tabelas Dimensão:**   
-  * `dim_pessoa`: Contém dados demográficos e institucionais do aluno/usuário (idade, e-mail, município, UF, esfera, etc.).   
+  * `dim_pessoa`: Reservados para dados sobre os estudantes (código, idade, e-mail, município, UF, esfera, etc.).   
   * `dim_turma`: Armazena os atributos específicos da turma (nome, modalidade, situação da turma).   
   * `dim_curso`: Detalha as características dos cursos (nome, carga horária, temática, conteúdo).   
-
+* **Observações:**
+  * como a atividade era focado no esquema estrela dados como: esfera, poder, instituição, munícipio e uf que poderiam ser colocados em tabelas dimensões próprias em 'dim_poder' e 'dim_uf' e ligados para 'dim_pessoas' foram apenas inseridos em 'dim_pessoa' diretamente
+  
 ## → Dashboard  
-<img width="1250" height="704" alt="image" src="https://github.com/user-attachments/assets/5166b0d2-7333-4281-a4bc-be5409610e2e" />  
-
+<img width="1168" height="667" alt="image" src="https://github.com/user-attachments/assets/fd8341f6-324d-426d-9ed6-257aa4b72d5b" />
+  
 * **Perguntas:**
   * `Total de alunos inscritos `: 188,11 mil
   * `Curso maior quantidade de matrículas`: Boas Práticas de Manipulação em Serviços de Alimentação
   * `Gênero com mais participação nos cursos`: Feminino com 100,81 mil - Masculino com 80,36 mil
   * `Top 3 UF com mais alunos`: São Paulo (33,18 mil) - Rio de Janeiros (19,18 mil) - Minas Gerias (15,51 mil)  
     
-* **[ Filtragem por gênero: ]**
-<img width="1252" height="704" alt="image" src="https://github.com/user-attachments/assets/823a8c07-5bd5-48c5-b6de-c490da393ec2" />  
+* **[ Exemplo de filtragem : ]**
+<img width="1168" height="663" alt="image" src="https://github.com/user-attachments/assets/01bafee2-bc9e-40f8-bf4b-3fe5bec84f56" />
+* Data: inscritos dentro do período 2 meses (Maio - Junho)
+* Curso: Comunicação assertiva
+* UF: Na região do DF 
+
 
