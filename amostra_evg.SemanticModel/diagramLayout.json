@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 355,
-            "y": 142
+            "x": 362,
+            "y": 22
           },
           "nodeIndex": "f_evg",
           "nodeLineageTag": "97f5c650-5cc0-410e-9977-9cb4b0f0b1ac",
@@ -23,39 +23,52 @@
         },
         {
           "location": {
-            "x": 702,
-            "y": 250
+            "x": 768,
+            "y": 219
           },
           "nodeIndex": "dim_curso",
           "nodeLineageTag": "257bd616-e179-46f6-9903-9858df3ce075",
           "size": {
-            "height": 228,
+            "height": 279,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 23,
+            "x": 28,
             "y": 0
           },
           "nodeIndex": "dim_pessoa",
           "nodeLineageTag": "ffeaef5f-3138-46b8-be95-3478565e9b81",
           "size": {
-            "height": 363,
+            "height": 424,
             "width": 234
           },
           "zIndex": 0
         },
         {
           "location": {
-            "x": 702,
+            "x": 709,
             "y": 0
           },
           "nodeIndex": "dim_turma",
           "nodeLineageTag": "731e830c-b7a9-4041-8de7-5418df33cfc1",
           "size": {
             "height": 175,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 363,
+            "y": 407.5
+          },
+          "nodeIndex": "dim_data",
+          "nodeLineageTag": "c8db5ff9-1758-41ef-9e69-2c7195ca3b6a",
+          "size": {
+            "height": 128,
             "width": 234
           },
           "zIndex": 0

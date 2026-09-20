@@ -3,10 +3,10 @@
   "name": "120f0a3da80a9ec6c094",
   "position": {
     "x": 0,
-    "y": 115.71955719557195,
+    "y": 96.666666666666657,
     "z": 2,
-    "height": 76.752767527675275,
-    "width": 710.84870848708488,
+    "height": 76.666666666666671,
+    "width": 640,
     "tabOrder": 2
   },
   "visual": {
@@ -36,6 +36,9 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -102,11 +105,23 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.4
+                    "Literal": {
+                      "Value": "'#5774B3'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -119,7 +134,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "e99028ee8e77741a5e36",
+        "name": "6aa9a7e0009739e3153a",
         "field": {
           "Aggregation": {
             "Expression": {

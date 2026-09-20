@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
   "name": "585d6773263e58060b70",
   "position": {
-    "x": 1107.60147601476,
+    "x": 1178.8888888888889,
     "y": 0,
     "z": 6,
-    "height": 192.47232472324723,
-    "width": 172.39852398523985,
+    "height": 192.22222222222223,
+    "width": 101.11111111111111,
     "tabOrder": 6
   },
   "visual": {
@@ -50,7 +50,49 @@
       ],
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "dim_pessoa",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "uf_pessoa"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'DF'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
         }
       ],
       "header": [
@@ -95,7 +137,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "16D"
+                  "Value": "14D"
                 }
               }
             }
@@ -136,9 +178,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.4
+                    "Literal": {
+                      "Value": "'#C2BF8C'"
                     }
                   }
                 }

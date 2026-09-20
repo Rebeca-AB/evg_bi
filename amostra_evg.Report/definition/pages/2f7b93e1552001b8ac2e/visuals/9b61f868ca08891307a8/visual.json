@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 115.71955719557195,
-    "width": 355.42435424354244,
+    "height": 96.666666666666657,
+    "width": 320,
     "tabOrder": 0
   },
   "visual": {
@@ -138,9 +138,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 1,
-                      "Percent": 0.4
+                    "Literal": {
+                      "Value": "'#5774B3'"
                     }
                   }
                 }

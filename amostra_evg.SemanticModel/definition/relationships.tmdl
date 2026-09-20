@@ -1,13 +1,3 @@
-relationship 52acb8ec-c205-4be3-b9af-ab564f36a62e
-	joinOnDateBehavior: datePartOnly
-	fromColumn: f_evg.dt_matricula
-	toColumn: LocalDateTable_fadbddf2-4701-47b1-95f5-cdb7a6a602d2.Date
-
-relationship 89ab1a2a-8848-4388-8390-b0599bb3dcd0
-	joinOnDateBehavior: datePartOnly
-	fromColumn: f_evg.dt_fim
-	toColumn: LocalDateTable_a598c3e1-1670-4b27-95f5-235fc180ff2a.Date
-
 relationship 43721817-fed1-3060-9b02-8a9d83da943b
 	fromColumn: f_evg.fk_curso
 	toColumn: dim_curso.cod_curso
@@ -17,6 +7,20 @@ relationship 6ff45314-a309-03e6-43ec-3c8070716a70
 	toColumn: dim_pessoa.codigo_pessoa
 
 relationship 7771bb21-ed94-efc4-d4fc-ababc00108f4
-	fromColumn: f_evg.fk_turma
+	fromColumn: f_evg.cod_turma
 	toColumn: dim_turma.cod_turma
+
+relationship 6f020454-c6ba-4d2c-8175-03f3c1578255
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_data.dt_matricula
+	toColumn: LocalDateTable_0c3b543b-035d-45a4-afa5-e64a2e3621a8.Date
+
+relationship 6c419511-154c-4347-b978-1de1b2373591
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_data.dt_fim
+	toColumn: LocalDateTable_360bd347-aad2-4dc1-8f00-32e52bc19090.Date
+
+relationship ee917394-3dd6-0430-eb38-83c162358b70
+	fromColumn: f_evg.dt_matricula
+	toColumn: dim_data.dt_matricula
 
